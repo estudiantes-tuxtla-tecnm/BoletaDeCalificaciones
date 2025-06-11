@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo2.png" type="image/x-icon">
+    <title>Boleta de Calificaciones - Tecnológico Nacional de México</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 18px;
+            font-weight: normal;
+        }
+        
+        .logo-text h2 {
+            font-size: 16px;
+            font-weight: normal;
+        }
+        
+        .user-info {
+            text-align: right;
+        }
+        
+        .user-info p {
+            margin-bottom: 5px;
+        }
+        
+        .logout-btn {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .main-content {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .page-title {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .student-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #003366;
+        }
+        
+        .info-box h3 {
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .info-box p {
+            font-size: 14px;
+        }
+        
+        .grades-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .grades-table th, .grades-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .grades-table th {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+        }
+        
+        .grades-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .grades-table tr:hover {
+            background-color: #e6e6e6;
+        }
+        
+        .semester-title {
+            color: #003366;
+            margin: 25px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #003366;
+        }
+        
+        .summary {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .summary h3 {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .summary-item {
+            text-align: center;
+        }
+        
+        .summary-item h4 {
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+        
+        .summary-item p {
+            font-weight: bold;
+            color: #003366;
+        }
+        
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .code-row {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.png" alt="Logo TecNM">
+                <div class="logo-text">
+                    <h1>Tecnológico Nacional de México</h1>
+                    <h2>Campus Tuxtla Gutiérrez</h2>
+                </div>
+            </div>
+            <div class="user-info">
+                <p>Bienvenido: <strong>Genaro Reyes Manga</strong></p>
+                <p>No, Control: <strong>24270425</strong></p>
+                <button class="logout-btn">Cerrar sesión</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <h2 class="page-title">Boleta de Calificaciones</h2>
+            
+            <div class="student-info">
+                <div class="info-box">
+                    <h3>Carrera</h3>
+                    <p>Ingeniería en Sistemas Computacionales</p>
+                </div>
+                
+                <div class="info-box">
+                    <h3>Semestre Actual</h3>
+                    <p>2°</p>
+                </div>
+            </div>
+            
+            <!-- Primer Semestre: Agosto-Diciembre 2024 -->
+            <h3 class="semester-title">Semestre: AGOSTO-DICIEMBRE/2024</h3>
+            <table class="grades-table">
+                <thead>
+                    <tr>
+                        <th>Materia</th>
+                        <th>CR</th>
+                        <th>Calificación</th>
+                        <th>Tipo de Evaluación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CÁLCULO</strong></td>
+                        <td>5</td>
+                        <td>88</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>ACF-2301</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>FUNDAMENTOS DE PROGRAMACIÓN</strong></td>
+                        <td>5</td>
+                        <td>86</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>AED1235</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TALLER DE ÉTICA</strong></td>
+                        <td>4</td>
+                        <td>80</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>AGH-2307</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>MATEMÁTICAS DISCRETAS</strong></td>
+                        <td>5</td>
+                        <td>86</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>AEF1041</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TALLER DE ADMINISTRACIÓN</strong></td>
+                        <td>4</td>
+                        <td>97</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>SCH1024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>FUNDAMENTOS DE INVESTIGACIÓN</strong></td>
+                        <td>4</td>
+                        <td>94</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>ACC0906</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="summary">
+                <h3>Promedio: Primer Semestre</h3>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Promedio Agosto-Diciembre</h4>
+                        <p>88.5</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Créditos Cursados</h4>
+                        <p>27</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Créditos Acumulados</h4>
+                        <p>27</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <!-- Segundo Semestre: Enero-Junio 2025 -->
+            <h3 class="semester-title">Semestre: ENERO-JUNIO/2025</h3>
+            <table class="grades-table">
+                <thead>
+                    <tr>
+                        <th>Materia</th>
+                        <th>CR</th>
+                        <th>Calificación</th>
+                        <th>Tipo de Evaluación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>QUÍMICA</strong></td>
+                        <td>4</td>
+                        <td>90</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>AEC1038</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>FÍSICA GENERAL</strong></td>
+                        <td>5</td>
+                        <td>87</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>SCF1006</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CÁLCULO INTEGRAL</strong></td>
+                        <td>5</td>
+                        <td>85</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>ACF-2301</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>PROGRAMACIÓN ORIENTADA A OBJETOS</strong></td>
+                        <td>5</td>
+                        <td>88</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>AED1286</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>CONTABILIDAD FINANCIERA</strong></td>
+                        <td>4</td>
+                        <td>79</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>AEC1008</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ÁLGEBRA LINEAL</strong></td>
+                        <td>5</td>
+                        <td>82</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>ACF0903</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>DESARROLLO SUSTENTABLE</strong></td>
+                        <td>5</td>
+                        <td>91</td>
+                        <td>Evaluación Ordinaria</td>
+                    </tr>
+                    <tr class="code-row">
+                        <td>ACD0908</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="summary">
+                <h3>Promedio: Segundo Semestre</h3>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Promedio Enero-Junio</h4>
+                        <p>-</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Créditos Cursados</h4>
+                        <p>33</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Créditos Acumulados</h4>
+                        <p>-</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Tecnológico Nacional de México - Campus Tuxtla Gutiérrez</p>
+            <p>© 2025 Todos los derechos reservados</p>
+        </footer>
+    </div>
+</body>
+</html>
